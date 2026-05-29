@@ -17,6 +17,7 @@ System Installation & Configuration
     - Managed system startup configuration and server environment settings
 
 Storage Management
+
     - Created and managed disk partitions
     - Configured Logical Volume Manager (LVM)
     - Created Physical Volumes (PV), Volume Groups (VG), and Logical Volumes (LV)
@@ -24,6 +25,7 @@ Storage Management
     - Configured persistent mounting using /etc/fstab
 
 Linux Security Administration
+
     - Created and managed users and groups
     - Implemented password aging policies
     - Configured file permissions and ownership
@@ -43,6 +45,7 @@ Network Administration
     - Verified routing and connectivity
 
 Package Management
+
     - Managed software repositories using DNF
     - Installed and maintained server packages:
         Nginx
@@ -53,6 +56,7 @@ Package Management
     - Implemented package version locking
 
 Automation & Scripting
+
     - Developed Bash scripts for:
         System backup automation
         User reporting and auditing
@@ -60,12 +64,14 @@ Automation & Scripting
     - Automated administrative tasks using shell scripting
 
 Service Management
+
     -  Created custom systemd service units
     - Created custom systemd timer units
     - Automated scheduled backup operations
     - Managed Linux services using systemctl
 
 GNU/Linux Command Line Operations
+
     - Managed hard links and symbolic links
     - Processed user and system data using:
         grep
@@ -75,6 +81,7 @@ GNU/Linux Command Line Operations
         find
 
 Created compressed archives using tar
+
     - Log Analysis
     - Parsed web access logs
     - Extracted error events
