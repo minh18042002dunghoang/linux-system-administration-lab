@@ -1,0 +1,6 @@
+package nghinx is not installed
+curl-8.12.1-4.el10.x86_64
+rsync-3.4.1-6.el10_2.x86_64
+tree-2.1.0-8.el10.x86_64
+zip-3.0-45.el10.x86_64
+unzip-6.0-69.el10.x86_64
