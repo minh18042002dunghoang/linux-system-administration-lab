@@ -1,0 +1,64 @@
+===== GROUPS =====
+Gadmin:x:1001:uadmin
+Gtrainer:x:1002:utrainer
+Gaudit:x:1003:uaudit
+===== USERS =====
+uid=1001(uadmin) gid=1004(uadmin) groups=1004(uadmin),1001(Gadmin)
+uid=1002(utrainer) gid=1005(utrainer) groups=1005(utrainer),1002(Gtrainer)
+uid=1003(uaudit) gid=1006(uaudit) groups=1006(uaudit),1003(Gaudit)
+===== PASSWORD POLICY =====
+Last password change					: May 28, 2026
+Password expires					: Jul 27, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 7
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 5
+
+Last password change					: May 28, 2026
+Password expires					: Jul 27, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 7
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 5
+
+Last password change					: May 28, 2026
+Password expires					: Jul 27, 2026
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 7
+Maximum number of days between password change		: 60
+Number of days of warning before password expires	: 5
+===== DIRECTORY PERMISSIONS =====
+drwxrws---. 2 root uadmin 6 May 28 14:59 /data/dung/private
+drwxrws---. 2 root uaudit 6 May 28 14:59 /data/dung/audit
+===== ACL =====
+# file: data/dung/course
+# owner: root
+# group: root
+user::rwx
+user:utrainer:r-x
+group::r-x
+mask::r-x
+other::r-x
+
+
+# file: data/dung/backup
+# owner: root
+# group: root
+user::rwx
+user:uaudit:r-x
+group::r-x
+mask::r-x
+other::r-x
+
+===== SSH CONFIG =====
+Port 2222
+PermitRootLogin no
+AllowUsers uadmin uaudit
+===== SSH STATUS =====
+tcp   LISTEN 0      128          0.0.0.0:2222      0.0.0.0:*    users:(("sshd",pid=9837,fd=7))         
+tcp   LISTEN 0      128             [::]:2222         [::]:*    users:(("sshd",pid=9837,fd=8))         
+===== SUDO RULE =====
+uaudit ALL=(ALL) NOPASSWD: /usr/bin/journalctl, /usr/bin/systemctl status sshd, /usr/bin/systemctl status nginx
