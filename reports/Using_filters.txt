@@ -1,0 +1,36 @@
+PROCESS TEXT STREAMS USING FILTERS
+
+Extract 404 errors
+192.168.10.14 - - [24/Mar/2026:08:00:18 +0700] "GET /missing.html HTTP/1.1" 404 153
+192.168.10.15 - - [24/Mar/2026:08:00:40 +0700] "GET /missing.html HTTP/1.1" 404 153
+192.168.10.16 - - [24/Mar/2026:08:01:39 +0700] "GET /missing.html HTTP/1.1" 404 153
+192.168.10.12 - - [24/Mar/2026:08:02:03 +0700] "GET /missing.html HTTP/1.1" 404 153
+
+Top 5 IP addresses
+      5 192.168.10.11
+      4 192.168.10.12
+      3 192.168.10.14
+      2 192.168.10.16
+      2 192.168.10.15
+
+URI statistics
+      5 /portal.html
+      4 /missing.html
+      3 /course.html
+      2 /media.html
+      2 /
+      1 /login
+      1 /backup.tar.gz
+      1 
+
+Count total lines
+19 access.log
+
+Count unique IPs
+7
+
+Count 404 errors
+4
+
+Count 500 errors
+1
