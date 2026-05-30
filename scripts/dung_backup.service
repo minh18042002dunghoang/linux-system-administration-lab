@@ -1,0 +1,6 @@
+[Unit]
+Description=DUNG Daily Backup Service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/dung_backup.sh

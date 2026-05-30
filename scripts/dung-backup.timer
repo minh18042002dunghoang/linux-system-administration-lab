@@ -1,0 +1,10 @@
+[Unit]
+Description=Run DUNG Backup every day at 23:10
+
+[Timer]
+OnCalendar=*-*-* 23:10:00
+Persistent=true
+Unit=dung_backup.service
+
+[Install]
+WantedBy=timers.target

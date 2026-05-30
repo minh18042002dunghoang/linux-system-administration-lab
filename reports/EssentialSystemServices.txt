@@ -1,0 +1,57 @@
+==== Essential System Services =====
+
+ Backup script:
+-rwxr-xr-x. 1 root root 274 May 30 10:41 /usr/local/bin/dung_backup.sh
+
+ Script content:
+#!/bin/bash
+
+BACKUP_DIR="/var/backups/dung"
+DATE=$(date +%Y%m%d)
+BACKUP_FILE="$BACKUP_DIR/dung-config-$DATE.tar.gz"
+
+mkdir -p "$BACKUP_DIR"
+
+tar -czf "$BACKUP_FILE" /etc /srv/dung 2>/dev/null
+
+echo "$(date '+%F %T') Backup created: $BACKUP_FILE" >> /var/log/dung_backup.log
+
+ Systemd service:
+[Unit]
+Description=DUNG Daily Backup Service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/dung_backup.sh
+
+ Systemd timer:
+[Unit]
+Description=Run DUNG Backup every day at 23:10
+
+[Timer]
+OnCalendar=*-*-* 23:10:00
+Persistent=true
+Unit=dung_backup.service
+
+[Install]
+WantedBy=timers.target
+
+ Timer status:
+● dung-backup.timer - Run DUNG Backup every day at 23:10
+     Loaded: loaded (/etc/systemd/system/dung-backup.timer; enabled; preset: disabled)
+     Active: active (waiting) since Sat 2026-05-30 10:59:08 +07; 54min ago
+ Invocation: fd5cf33184e1439e9d52451cc914a21c
+    Trigger: Sat 2026-05-30 23:10:00 +07; 11h left
+   Triggers: ● dung_backup.service
+
+May 30 10:59:08 localhost.localdomain systemd[1]: Started dung-backup.timer - Run DUNG Backup every day at 23:10.
+
+ List timers:
+Sat 2026-05-30 23:10:00 +07       11h -                                     - dung-backup.timer            dung_backup.service
+
+ Backup files:
+total 5.4M
+-rw-r--r--. 1 root root 5.4M May 30 10:59 dung-config-20260530.tar.gz
+
+ Backup log:
+2026-05-30 10:59:22 Backup created: /var/backups/dung/dung-config-20260530.tar.gz
