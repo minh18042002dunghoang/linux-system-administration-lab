@@ -1,0 +1,33 @@
+===== ADMINISTRATIVE TASKS =====
+
+ Groups
+wheel:x:10:dung
+dung:x:1000:
+dungstaff:x:1007:teacher01,teacher02
+dunglab:x:1008:teacher01,teacher02,student01
+
+ User information
+uid=1004(teacher01) gid=1009(teacher01) groups=1009(teacher01),1007(dungstaff),1008(dunglab)
+uid=1005(teacher02) gid=1010(teacher02) groups=1010(teacher02),1007(dungstaff),1008(dunglab)
+uid=1006(student01) gid=1011(student01) groups=1011(student01),1008(dunglab)
+
+ Shared directory
+drwxrws---. 2 root dunglab 6 May 30 14:09 /shared/dunglab
+
+ UMASK configuration
+umask 027
+
+ Limits configuration
+teacher01 hard nofile 100
+teacher01 soft nofile 100
+student01 hard nofile 40
+student01 soft nofile 40
+
+6. Account expiration
+Last password change					: May 30, 2026
+Password expires					: never
+Password inactive					: never
+Account expires						: Dec 30, 2026
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 99999
+Number of days of warning before password expires	: 7
